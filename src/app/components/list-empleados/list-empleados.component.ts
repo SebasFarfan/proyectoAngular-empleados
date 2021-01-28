@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { faEdit, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { faEdit, faPlus, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-empleados',
@@ -10,8 +12,13 @@ export class ListEmpleadosComponent implements OnInit {
 
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
+  faPlus = faPlus;
 
-  constructor() { }
+  
+
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }

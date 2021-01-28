@@ -7,6 +7,9 @@ import { ListEmpleadosComponent } from './components/list-empleados/list-emplead
 import { CreateEmpleadosComponent } from './components/create-empleados/create-empleados.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule, 
+    AngularFireModule.initializeApp(environment.firebase), 
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

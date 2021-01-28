@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "app2020-775a8": {
+      "hosting": {
+        "Empleados": [
+          "app2020-775a8"
+        ]
+      }
+    }
+  }
+}
