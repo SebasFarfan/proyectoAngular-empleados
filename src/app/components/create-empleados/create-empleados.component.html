@@ -3,22 +3,34 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card text-center">
                 <div class="card-body">
-                    <h3>Agregar Empleado</h3>
-                    <form class="mt-4">
+                    <h3>
+                        {{titulo}}
+                        <div *ngIf="loading" class="spinner-border text-secondary float-right" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </h3>
+                    <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON
+                        OBLIGATORIOS</span>
+                    <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEditarEmpleado()">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control form-control-lg" placeholder="Apellido">
+                                <input type="text" class="form-control form-control-lg" formControlName="apellido"
+                                    placeholder="Apellido">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control form-control-lg" placeholder="Nombre">
+                                <input type="text" class="form-control form-control-lg" formControlName="nombre"
+                                    placeholder="Nombre">
                             </div>
                         </div>
-                        <input type="text" class="form-control form-control-lg mt-3" placeholder="DNI">
-                        <input type="text" class="form-control form-control-lg mt-3" placeholder="Salario">
+                        <input type="text" class="form-control form-control-lg mt-3" formControlName="dni"
+                            placeholder="DNI">
+                        <input type="number" class="form-control form-control-lg mt-3" formControlName="salario"
+                            placeholder="Salario">
                         <hr>
                         <div class="col">
-                            <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/list-empleados">Volver</button>
-                            <button type="submit" class="btn btn-success btn-lg">Agregar</button>
+                            <button type="text" class="btn btn-secondary btn-lg mr-3"
+                                routerLink="/list-empleados">Volver</button>
+                            <button type="submit" class="btn btn-success btn-lg">{{nombreBoton}}</button>
                         </div>
                     </form>
                 </div>

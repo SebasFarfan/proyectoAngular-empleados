@@ -15,40 +15,40 @@
                         <th></th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr>
-                        <td>Farfán</td>
-                        <td>Sebastián</td>
-                        <td>29496334</td>
-                        <td>45000</td>
-                        <td>
-                            <fa-icon [icon]='faEdit' class="fa-lg text-info mr-5"></fa-icon>
-                            <fa-icon [icon]='faTrashAlt' class="fa-lg text-danger"></fa-icon>
+                    <tr *ngIf="loading">
+                        <td colspan="5">
+                            <div class="text-center">
+                                <div class="spinner-border text-secondary" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                Cargando...
+                            </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Farfán</td>
-                        <td>Sebastián</td>
-                        <td>29496334</td>
-                        <td>45000</td>
-                        <td>
-                            <fa-icon [icon]='faEdit' class="fa-lg text-info mr-5"></fa-icon>
-                            <fa-icon [icon]='faTrashAlt' class="fa-lg text-danger"></fa-icon>
+                    <tr *ngIf="empleados.length==0">
+                        <td colspan="5">
+                            <h5 class="text-center">
+                                No hay Empleados Registrados
+                            </h5>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Farfán</td>
-                        <td>Sebastián</td>
-                        <td>29496334</td>
-                        <td>45000</td>
+                    <tr *ngFor="let empleado of empleados">
+                        <td>{{empleado.apellido}}</td>
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.dni}}</td>
+                        <td>{{empleado.salario | currency}}</td>
                         <td>
-                            <fa-icon [icon]='faEdit' class="fa-lg text-info mr-5"></fa-icon>
-                            <fa-icon [icon]='faTrashAlt' class="fa-lg text-danger"></fa-icon>
+                            <fa-icon [icon]='faEdit' class="fa-lg text-info mr-5"
+                                [routerLink]="['/editar-empleado/', empleado.id]"></fa-icon>
+                            <fa-icon [icon]='faTrashAlt' class="fa-lg text-danger"
+                                (click)="eliminarEmpleado(empleado.id)"></fa-icon>
                         </td>
-                    </tr>                    
+                    </tr>
                 </tbody>
             </table>
-            
+
         </div>
     </div>
 </div>

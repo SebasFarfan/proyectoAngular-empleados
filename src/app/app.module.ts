@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +11,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AppRoutingModule,
     FontAwesomeModule, 
     AngularFireModule.initializeApp(environment.firebase), 
-    AngularFirestoreModule
+    AngularFirestoreModule, 
+    ReactiveFormsModule, 
+    ToastrModule.forRoot(), 
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
